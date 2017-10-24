@@ -1,6 +1,6 @@
-name := "basic-project"
+name := "spp"
 
-organization := "example"
+organization := "nure"
 
 version := "0.1.0-SNAPSHOT"
 
@@ -13,5 +13,3 @@ libraryDependencies ++= Seq(
   "org.scalacheck" %% "scalacheck" % "1.11.5" % "test",
   "org.specs2" %% "specs2-core" % "4.0.0" % "test"
 )
-
-initialCommands := "import example._"
