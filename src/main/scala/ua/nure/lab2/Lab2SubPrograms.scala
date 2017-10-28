@@ -31,7 +31,7 @@ object Lab2SubPrograms {
     val password = Console.in.readLine()
 
 
-    val checkRes = password.toCharArray.groupBy({
+    val checkRes = password.groupBy({
       case x if String.valueOf(x).matches("[0-9]") => number
       case x if String.valueOf(x).matches("[A-Z]") => uppercase
       case x if String.valueOf(x).matches("[a-z]") => lowercase

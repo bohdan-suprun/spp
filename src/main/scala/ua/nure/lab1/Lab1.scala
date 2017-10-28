@@ -42,12 +42,9 @@ object Lab1 {
     val copy = arr.clone()
 
     for (i <- 0 until copy.length - 1 by 2) {
-      val (f, s) = (copy(i), copy(i + 1)) match {
-        case (fst, scd) => (scd, fst)
+      (copy(i), copy(i + 1)) match {
+        case (f, s) => copy(i) = s; copy(i + 1) = f
       }
-
-      copy(i) = f
-      copy(i + 1) = s
     }
 
     copy
