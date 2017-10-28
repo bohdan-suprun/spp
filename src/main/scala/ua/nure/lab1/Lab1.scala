@@ -9,9 +9,9 @@ import scala.collection.JavaConversions.propertiesAsScalaMap
 import scala.collection.mutable
 
 /**
-  * @author Bohdan_Suprun
-  */
-class Lab1 {
+ * @author Bohdan_Suprun
+ */
+object Lab1 {
 
   def sign(num: Double): Int = {
     num match {
@@ -42,12 +42,12 @@ class Lab1 {
     val copy = arr.clone()
 
     for (i <- 0 until copy.length - 1 by 2) {
-      val fIndex = i
-      val sIndex = i + 1
+      val (f, s) = (copy(i), copy(i + 1)) match {
+        case (fst, scd) => (scd, fst)
+      }
 
-      val temp = copy(fIndex)
-      copy(fIndex) = copy(sIndex)
-      copy(sIndex) = temp
+      copy(i) = f
+      copy(i + 1) = s
     }
 
     copy
@@ -130,11 +130,9 @@ class Lab1 {
   def printPropTable: String = {
     val props = propertiesAsScalaMap(System.getProperties)
     val maxKey = props.maxBy({ case (key, value) => key.length }).toString().length
-    val maxProp = props.maxBy({ case (key, value) => value.length }).toString.length
+    val maxProp = props.maxBy({ case (key, value) => value.length }).toString().length
 
-    val result = props.map({ case (key, value)
-    => key.padTo(maxKey, ' ') + "| " + value.padTo(maxProp, ' ') + "|\n"
-    })
+    val result = props.map({ case (key, value) => f"${key.padTo(maxKey, ' ')} | ${value.padTo(maxProp, ' ')} |\n" })
       .reduce((a, b) => a + b)
 
     println(result)

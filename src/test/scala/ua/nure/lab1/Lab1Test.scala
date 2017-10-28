@@ -9,7 +9,7 @@ import scala.collection.mutable
   */
 class Lab1Test extends Specification {
   "Lab1" should {
-    val lab1 = new Lab1()
+    val lab1 = Lab1
     "sign for positive number be 1" in {
       lab1 sign 234545 mustEqual 1
 
