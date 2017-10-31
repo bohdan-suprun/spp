@@ -1,6 +1,6 @@
 package ua.nure.lab5
 
-import akka.actor.{Actor, ActorSystem, Props}
+import akka.actor.{Actor, ActorIdentity, ActorSystem, Identify, Props}
 
 import scala.util.Random
 
@@ -28,8 +28,9 @@ class AverageCalculationSum(arr: Array[Double]) extends Actor {
       context.system.shutdown()
     case "start" =>
       for (num <- arr.grouped(expectedCnt)) {
-        val actor = context.system.actorOf(Props[AverageCalculationActor](new AverageCalculationActor(self)))
+        val actor = context.system.actorOf(Props[AverageCalculationActor](new AverageCalculationActor()))
         context.watch(actor)
+        actor ! ActorIdentity("sum", Option(self))
         actor ! num
       }
   }
