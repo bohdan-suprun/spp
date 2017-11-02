@@ -47,10 +47,10 @@ object Lab3Common {
   }
 
   def middle[T](it: Iterable[T]): Option[T] = {
-    var mid = it.size / 2
+    var mid: Int = it.size / 2
     var midValue: T = null.asInstanceOf[T]
 
-    for (v <- it if mid > 0) {
+    for (v <- it if mid > -1) {
       midValue = v
       mid -= 1
     }

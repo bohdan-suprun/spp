@@ -49,10 +49,10 @@ class Lab3CommonTest extends Specification {
     }
 
     "return middle element" in {
-      Lab3Common middle Array[Int](10, 20, 30) mustEqual 30
-      Lab3Common middle Array[Int](10, 20) mustEqual 20
-      Lab3Common middle Array[Int]() mustEqual null
-      Lab3Common middle "World" mustEqual "r"
+      Lab3Common middle Array[Int](10, 20, 30) must beSome(20)
+      Lab3Common middle Array[Int](10, 20) must beSome(20)
+      Lab3Common middle Array[Int]() must be(None)
+      Lab3Common middle "World" must beSome('r')
     }
   }
 }
